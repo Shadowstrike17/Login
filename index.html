@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T.A.S.K Login Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="loginForm">
+        <h1>T.A.S.K Login</h1>
+        <div class="input-box">
+          <input type="text" id="username" placeholder="Username" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" id="apiKey" placeholder="API Key" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <div id="confirmationMessage" style="display: none">
+        <h2>Logged in</h2>
+        <p>You have been successfully admitted to T.A.S.K.</p>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var username = document.getElementById("username").value;
+          var apiKey = document.getElementById("apiKey").value;
+
+          if (username === "Alex" && apiKey === "API-qznytpt37a9") {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("confirmationMessage").style.display =
+              "block";
+          } else {
+            alert("Invalid username or API key");
+          }
+        });
+    </script>
+  </body>
+</html>
