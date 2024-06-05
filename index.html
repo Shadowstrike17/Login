@@ -1,76 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T.A.S.K Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .hidden {
-        display: none;
-      }
-      .visible {
-        display: block;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-80">
-      <h2 class="text-2xl font-bold mb-6 text-center">T.A.S.K Login</h2>
-      <div id="username-section">
-        <label for="username" class="block text-gray-700">Username</label>
-        <input
-          type="text"
-          id="username"
-          class="border border-gray-300 rounded w-full py-2 px-3 mt-2 focus:outline-none focus:border-blue-500"
-        />
-        <button
-          onclick="checkUsername()"
-          class="w-full bg-blue-500 text-white py-2 rounded-lg mt-4 transition hover:bg-blue-600"
-        >
-          Next
-        </button>
-      </div>
-      <div id="api-key-section" class="hidden">
-        <label for="api-key" class="block text-gray-700">API Key</label>
-        <input
-          type="text"
-          id="api-key"
-          class="border border-gray-300 rounded w-full py-2 px-3 mt-2 focus:outline-none focus:border-blue-500"
-        />
-        <button
-          onclick="checkApiKey()"
-          class="w-full bg-blue-500 text-white py-2 rounded-lg mt-4 transition hover:bg-blue-600"
-        >
-          Login
-        </button>
-      </div>
-      <p id="error-message" class="text-red-500 mt-4 hidden">
-        Incorrect API Key
-      </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T.A.S.K Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-80">
+    <h2 class="text-2xl font-bold mb-6 text-center">T.A.S.K Login</h2>
+    <div id="username-section">
+      <label for="username" class="block text-gray-700">Username</label>
+      <input
+        type="text"
+        id="username"
+        class="border border-gray-300 rounded w-full py-2 px-3 mt-2 focus:outline-none focus:border-blue-500"
+      />
+      <button
+        onclick="checkUsername()"
+        class="w-full bg-blue-500 text-white py-2 rounded-lg mt-4 transition hover:bg-blue-600"
+      >
+        Next
+      </button>
     </div>
+    <div id="api-key-section" class="hidden">
+      <label for="api-key" class="block text-gray-700">API Key</label>
+      <input
+        type="text"
+        id="api-key"
+        class="border border-gray-300 rounded w-full py-2 px-3 mt-2 focus:outline-none focus:border-blue-500"
+      />
+      <button
+        onclick="checkApiKey()"
+        class="w-full bg-blue-500 text-white py-2 rounded-lg mt-4 transition hover:bg-blue-600"
+      >
+        Login
+      </button>
+    </div>
+    <p id="error-message" class="text-red-500 mt-4 hidden">
+      Incorrect API Key
+    </p>
+    <p id="system-crash-message" class="text-red-500 mt-4 hidden">
+      System Crashed
+    </p>
+  </div>
 
-    <script>
-      function checkUsername() {
-        const username = document.getElementById("username").value;
-        if (username === "Alex") {
-          document.getElementById("username-section").classList.add("hidden");
-          document.getElementById("api-key-section").classList.remove("hidden");
-        } else {
-          alert("Username not found");
-        }
+  <script>
+    function checkUsername() {
+      const username = document.getElementById("username").value;
+      if (username === "Alex") {
+        document.getElementById("username-section").classList.add("hidden");
+        document.getElementById("api-key-section").classList.remove("hidden");
+      } else {
+        alert("Username not found");
       }
+    }
 
-      function checkApiKey() {
-        const apiKey = document.getElementById("api-key").value;
-        if (apiKey === "correct-api-key") {
-          // Replace with the actual correct API key
-          alert("Login successful");
-          window.location.href = "index.html"; // Redirect to the dashboard page
-        } else {
-          document.getElementById("error-message").classList.remove("hidden");
-        }
+    function checkApiKey() {
+      const apiKey = document.getElementById("api-key").value;
+      if (apiKey === "API-qznytpt37a9") {
+        document.getElementById("system-crash-message").classList.remove("hidden");
+      } else if (apiKey === "correct-api-key") {
+        // Replace with the actual correct API key
+        alert("Login successful");
+        window.location.href = "index.html"; // Redirect to the dashboard page
+      } else {
+        document.getElementById("error-message").classList.remove("hidden");
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
 </html>
