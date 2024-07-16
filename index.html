@@ -25,10 +25,6 @@
         </div>
         <button type="submit" class="btn">Login</button>
       </form>
-      <div id="confirmationMessage" style="display: none">
-        <h2>Logged in</h2>
-        <p>You have been successfully admitted to T.A.S.K.</p>
-      </div>
     </div>
     <script>
       document
@@ -39,9 +35,7 @@
           var apiKey = document.getElementById("apiKey").value;
 
           if (username === "Atreya" && apiKey === "1234512345") {
-            document.getElementById("loginForm").style.display = "none";
-            document.getElementById("confirmationMessage").style.display =
-              "block";
+            window.location.href = "https://shadowstrike17.github.io/Main/";
           } else {
             alert("Invalid username or API key");
           }
